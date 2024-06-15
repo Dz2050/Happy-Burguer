@@ -1,0 +1,127 @@
+
+body {
+    background-image: linear-gradient(to left, #e0f2f1, #b2dfdb, #80cbc4, #4db6ac);
+    font-family: 'Open Sans' sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 7em;
+    color: rgb(0, 0, 0);
+}
+
+a {
+    font-size: 2.5em;
+    color: #333;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+button {
+    background-color: lightcoral;
+    color: black;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 15px 20px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+nav ul li a:hover {
+    background-color: lightcoral; /* Cambio de color al hacer MouseHover */
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: 3px;
+}
+
+nav li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#contenido-principal {
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Formulario de gestión de clientes */
+#gestion-clientes {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#gestion-clientes label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#gestion-clientes input,
+#gestion-clientes textarea {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#gestion-clientes button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#gestion-clientes button:hover {
+    background-color: #cc0000; /* Cambio de color al hacer MouseHover */
+}
+
+#lista-clientes {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#lista-clientes li {
+    margin-bottom: 5px;
+}
+
+#historia {
+    width: 50%;
+}
+
+#historia p {
+    column-width: 100%;
+    column-gap: 10px;
+}
+
+.imagen-producto {
+    width: 100%;
+    height: auto;
+}
+
+#menu-comida li,
+#menu-bebidas li,
+#menu-snacks li {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Inicio</title>
+</head>
+<body>
+
+    <header>
+        <h1>Happy Burger!!</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('comida') }}">Comida</a></li>
+                <li><a href="{{ url_for('bebidas') }}">Bebidas</a></li>
+                <li><a href="{{ url_for('snacks') }}">Snacks</a></li>
+                <li><a href="{{ url_for('finalizar_pedido') }}">Finalizar Pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="contenido-principal">
+            <section id="gestion-clientes">
+                        <h2>Registrate</h2>
+                <form id="cliente-form">
+                    <label for="clave">Clave:</label>
+                    <input type="text" id="clave" name="clave"><br><br>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre"><br><br>
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion"><br><br>
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo"><br><br>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono"><br><br>
+                    <button type="button" onclick="agregarCliente()">Agregar Cliente</button>
+                    <button type="button" onclick="actualizarCliente()">Actualizar Cliente</button>
+                    <button type="button" onclick="eliminarCliente()">Eliminar Cliente</button>
+                </form>
+                </section>
+    
+            <section id="historia">
+                    <h2>Nuestra Historia</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, dolorum placeat? Mollitia adipisci veniam facilis expedita itaque officiis sed et nihil corrupti ipsa, ut dolor, ad cum molestiae. 
+                    Perspiciatis, a. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus labore id adipisci fugit. Praesentium distinctio veniam neque laborum suscipit asperiores, quaerat ipsa. 
+                    Praesentium, possimus ab. Unde aperiam exercitationem nobis laudantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, accusantium. 
+                    Enim temporibus earum commodi natus vitae. Magni inventore quae dignissimos quas, ut exercitationem non nobis perferendis, cum nostrum eaque cumque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Eveniet iusto qui in temporibus? Similique veritatis, distinctio repellat culpa maxime quo, ipsum voluptatum iste ratione aut nulla beatae doloremque. Doloremque, fugit!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe maiores soluta recusandae aperiam sapiente incidunt voluptatum natus, eius repellendus quas quis quae est qui fuga totam fugit ex, deserunt delectus!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, temporibus itaque voluptate distinctio modi corporis cumque et dolorum ipsam doloribus! Enim veniam vel minima fugiat quo totam fugit odit soluta!</p>
+                </section>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Happy Burger</p>
+    </footer>
+    <script src="{{ url_for('static', filename='restaurante.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Completa Tu Pedido</title>
+</head>
+<body>
+    <header>
+        <h1>Finalizar Pedido</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comida') }}">Comida</a></li>
+                <li><a href="{{ url_for('bebidas') }}">Bebidas</a></li>
+                <li><a href="{{ url_for('snacks') }}">Snacks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="resumen-pedido">
+            <h2>Resumen de tu Pedido</h2>
+            <ul id="lista-productos">
+                {% for item in carrito %}
+                    <li>
+                        {{ item.nombre }} x {{ item.cantidad }} - ${{ item.precio * item.cantidad }}
+                        <button onclick="eliminarDelCarrito('{{ item.clave }}', this)">Eliminar</button>
+                    </li>
+                    {% endfor %}
+            </ul>
+            <p>Total: $<span id="total-pedido">0.00</span></p>
+
+            <h2>Datos del Cliente</h2>
+            <form id="cliente-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre"><br><br>
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion"><br><br>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono"><br><br>
+            </form>
+
+            <button onclick="confirmarPedido()">Confirmar Pedido</button>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='restaurante.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', actualizarCarrito);
+    </script>
+</body>
+</html>

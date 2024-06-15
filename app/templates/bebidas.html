@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Bebidas</title>
+</head>
+<body>
+    <header>
+        <h1>Bebidas</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comida') }}">Comida</a></li>
+                <li><a href="{{ url_for('snacks') }}">Snacks</a></li>
+                <li><a href="{{ url_for('finalizar_pedido') }}">Finalizar Pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="menu-bebidas">
+            <h2>Nuestras Bebidas</h2>
+            <ul>
+                {% for bebida in bebidas %}
+                <li {% if loop.first %}class="primer-producto"{% endif %}>
+                    <div class="imagen-producto"> 
+                        {% if bebida.imagen %}
+                            <img src="{{ url_for('static', filename='imagenes_productos/' + bebida.imagen) }}" alt="{{ bebida.nombre }}">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='imagen_no_disponible.jpg') }}" alt="Imagen no disponible">
+                        {% endif %}
+                    </div>
+                    <div class="descripcion-producto">
+                        <h3>{{ bebida.nombre }}</h3> 
+                        <p>{{ bebida.descripcion }}</p> 
+                        <p>Precio: ${{ bebida.precio }}</p>
+                        <label for="cantidad-{{ bebida.clave }}">Cantidad:</label>
+                        <input type="number" id="cantidad-{{ bebida.clave }}" value="1" min="1">
+                        <button onclick="agregarAlCarrito('{{ bebida.clave }}')">Agregar al carrito</button>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Happy Burger</p>
+    </footer>
+    <script src="{{ url_for('static', filename='restaurante.js') }}"></script>
+</body>
+</html>
